@@ -424,6 +424,2435 @@ pub fn operationoutcome_delete(
   }
 }
 
+pub fn head_occipital_frontal_circumference_percentile_create(
+  resource: resources.HeadOccipitalFrontalCircumferencePercentile,
+  client: FhirClient,
+) -> Result(resources.HeadOccipitalFrontalCircumferencePercentile, Err) {
+  any_create(
+    resources.head_occipital_frontal_circumference_percentile_to_json(resource),
+    resources.RtObservation,
+    resources.head_occipital_frontal_circumference_percentile_decoder(),
+    client,
+  )
+}
+
+pub fn head_occipital_frontal_circumference_percentile_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.HeadOccipitalFrontalCircumferencePercentile, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.head_occipital_frontal_circumference_percentile_decoder(),
+  )
+}
+
+pub fn head_occipital_frontal_circumference_percentile_update(
+  resource: resources.HeadOccipitalFrontalCircumferencePercentile,
+  client: FhirClient,
+) -> Result(resources.HeadOccipitalFrontalCircumferencePercentile, Err) {
+  any_update(
+    resource.id,
+    resources.head_occipital_frontal_circumference_percentile_to_json(resource),
+    resources.RtObservation,
+    resources.head_occipital_frontal_circumference_percentile_decoder(),
+    client,
+  )
+}
+
+pub fn head_occipital_frontal_circumference_percentile_delete(
+  resource: resources.HeadOccipitalFrontalCircumferencePercentile,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn pediatric_bmi_for_age_create(
+  resource: resources.PediatricBmiForAge,
+  client: FhirClient,
+) -> Result(resources.PediatricBmiForAge, Err) {
+  any_create(
+    resources.pediatric_bmi_for_age_to_json(resource),
+    resources.RtObservation,
+    resources.pediatric_bmi_for_age_decoder(),
+    client,
+  )
+}
+
+pub fn pediatric_bmi_for_age_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.PediatricBmiForAge, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.pediatric_bmi_for_age_decoder(),
+  )
+}
+
+pub fn pediatric_bmi_for_age_update(
+  resource: resources.PediatricBmiForAge,
+  client: FhirClient,
+) -> Result(resources.PediatricBmiForAge, Err) {
+  any_update(
+    resource.id,
+    resources.pediatric_bmi_for_age_to_json(resource),
+    resources.RtObservation,
+    resources.pediatric_bmi_for_age_decoder(),
+    client,
+  )
+}
+
+pub fn pediatric_bmi_for_age_delete(
+  resource: resources.PediatricBmiForAge,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn pediatric_weight_for_height_create(
+  resource: resources.PediatricWeightForHeight,
+  client: FhirClient,
+) -> Result(resources.PediatricWeightForHeight, Err) {
+  any_create(
+    resources.pediatric_weight_for_height_to_json(resource),
+    resources.RtObservation,
+    resources.pediatric_weight_for_height_decoder(),
+    client,
+  )
+}
+
+pub fn pediatric_weight_for_height_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.PediatricWeightForHeight, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.pediatric_weight_for_height_decoder(),
+  )
+}
+
+pub fn pediatric_weight_for_height_update(
+  resource: resources.PediatricWeightForHeight,
+  client: FhirClient,
+) -> Result(resources.PediatricWeightForHeight, Err) {
+  any_update(
+    resource.id,
+    resources.pediatric_weight_for_height_to_json(resource),
+    resources.RtObservation,
+    resources.pediatric_weight_for_height_decoder(),
+    client,
+  )
+}
+
+pub fn pediatric_weight_for_height_delete(
+  resource: resources.PediatricWeightForHeight,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_allergyintolerance_create(
+  resource: resources.UsCoreAllergyintolerance,
+  client: FhirClient,
+) -> Result(resources.UsCoreAllergyintolerance, Err) {
+  any_create(
+    resources.us_core_allergyintolerance_to_json(resource),
+    resources.RtAllergyintolerance,
+    resources.us_core_allergyintolerance_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_allergyintolerance_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreAllergyintolerance, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtAllergyintolerance,
+    resources.us_core_allergyintolerance_decoder(),
+  )
+}
+
+pub fn us_core_allergyintolerance_update(
+  resource: resources.UsCoreAllergyintolerance,
+  client: FhirClient,
+) -> Result(resources.UsCoreAllergyintolerance, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_allergyintolerance_to_json(resource),
+    resources.RtAllergyintolerance,
+    resources.us_core_allergyintolerance_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_allergyintolerance_delete(
+  resource: resources.UsCoreAllergyintolerance,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtAllergyintolerance, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_average_blood_pressure_create(
+  resource: resources.UsCoreAverageBloodPressure,
+  client: FhirClient,
+) -> Result(resources.UsCoreAverageBloodPressure, Err) {
+  any_create(
+    resources.us_core_average_blood_pressure_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_average_blood_pressure_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_average_blood_pressure_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreAverageBloodPressure, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_average_blood_pressure_decoder(),
+  )
+}
+
+pub fn us_core_average_blood_pressure_update(
+  resource: resources.UsCoreAverageBloodPressure,
+  client: FhirClient,
+) -> Result(resources.UsCoreAverageBloodPressure, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_average_blood_pressure_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_average_blood_pressure_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_average_blood_pressure_delete(
+  resource: resources.UsCoreAverageBloodPressure,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_blood_pressure_create(
+  resource: resources.UsCoreBloodPressure,
+  client: FhirClient,
+) -> Result(resources.UsCoreBloodPressure, Err) {
+  any_create(
+    resources.us_core_blood_pressure_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_blood_pressure_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_blood_pressure_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreBloodPressure, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_blood_pressure_decoder(),
+  )
+}
+
+pub fn us_core_blood_pressure_update(
+  resource: resources.UsCoreBloodPressure,
+  client: FhirClient,
+) -> Result(resources.UsCoreBloodPressure, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_blood_pressure_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_blood_pressure_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_blood_pressure_delete(
+  resource: resources.UsCoreBloodPressure,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_bmi_create(
+  resource: resources.UsCoreBmi,
+  client: FhirClient,
+) -> Result(resources.UsCoreBmi, Err) {
+  any_create(
+    resources.us_core_bmi_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_bmi_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_bmi_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreBmi, Err) {
+  any_read(id, client, resources.RtObservation, resources.us_core_bmi_decoder())
+}
+
+pub fn us_core_bmi_update(
+  resource: resources.UsCoreBmi,
+  client: FhirClient,
+) -> Result(resources.UsCoreBmi, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_bmi_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_bmi_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_bmi_delete(
+  resource: resources.UsCoreBmi,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_body_height_create(
+  resource: resources.UsCoreBodyHeight,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyHeight, Err) {
+  any_create(
+    resources.us_core_body_height_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_body_height_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_body_height_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyHeight, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_body_height_decoder(),
+  )
+}
+
+pub fn us_core_body_height_update(
+  resource: resources.UsCoreBodyHeight,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyHeight, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_body_height_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_body_height_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_body_height_delete(
+  resource: resources.UsCoreBodyHeight,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_body_temperature_create(
+  resource: resources.UsCoreBodyTemperature,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyTemperature, Err) {
+  any_create(
+    resources.us_core_body_temperature_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_body_temperature_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_body_temperature_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyTemperature, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_body_temperature_decoder(),
+  )
+}
+
+pub fn us_core_body_temperature_update(
+  resource: resources.UsCoreBodyTemperature,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyTemperature, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_body_temperature_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_body_temperature_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_body_temperature_delete(
+  resource: resources.UsCoreBodyTemperature,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_body_weight_create(
+  resource: resources.UsCoreBodyWeight,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyWeight, Err) {
+  any_create(
+    resources.us_core_body_weight_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_body_weight_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_body_weight_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyWeight, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_body_weight_decoder(),
+  )
+}
+
+pub fn us_core_body_weight_update(
+  resource: resources.UsCoreBodyWeight,
+  client: FhirClient,
+) -> Result(resources.UsCoreBodyWeight, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_body_weight_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_body_weight_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_body_weight_delete(
+  resource: resources.UsCoreBodyWeight,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_care_experience_preference_create(
+  resource: resources.UsCoreCareExperiencePreference,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareExperiencePreference, Err) {
+  any_create(
+    resources.us_core_care_experience_preference_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_care_experience_preference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_care_experience_preference_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareExperiencePreference, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_care_experience_preference_decoder(),
+  )
+}
+
+pub fn us_core_care_experience_preference_update(
+  resource: resources.UsCoreCareExperiencePreference,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareExperiencePreference, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_care_experience_preference_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_care_experience_preference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_care_experience_preference_delete(
+  resource: resources.UsCoreCareExperiencePreference,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_careplan_create(
+  resource: resources.UsCoreCareplan,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareplan, Err) {
+  any_create(
+    resources.us_core_careplan_to_json(resource),
+    resources.RtCareplan,
+    resources.us_core_careplan_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_careplan_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareplan, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtCareplan,
+    resources.us_core_careplan_decoder(),
+  )
+}
+
+pub fn us_core_careplan_update(
+  resource: resources.UsCoreCareplan,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareplan, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_careplan_to_json(resource),
+    resources.RtCareplan,
+    resources.us_core_careplan_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_careplan_delete(
+  resource: resources.UsCoreCareplan,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtCareplan, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_careteam_create(
+  resource: resources.UsCoreCareteam,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareteam, Err) {
+  any_create(
+    resources.us_core_careteam_to_json(resource),
+    resources.RtCareteam,
+    resources.us_core_careteam_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_careteam_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareteam, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtCareteam,
+    resources.us_core_careteam_decoder(),
+  )
+}
+
+pub fn us_core_careteam_update(
+  resource: resources.UsCoreCareteam,
+  client: FhirClient,
+) -> Result(resources.UsCoreCareteam, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_careteam_to_json(resource),
+    resources.RtCareteam,
+    resources.us_core_careteam_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_careteam_delete(
+  resource: resources.UsCoreCareteam,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtCareteam, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_condition_encounter_diagnosis_create(
+  resource: resources.UsCoreConditionEncounterDiagnosis,
+  client: FhirClient,
+) -> Result(resources.UsCoreConditionEncounterDiagnosis, Err) {
+  any_create(
+    resources.us_core_condition_encounter_diagnosis_to_json(resource),
+    resources.RtCondition,
+    resources.us_core_condition_encounter_diagnosis_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_condition_encounter_diagnosis_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreConditionEncounterDiagnosis, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtCondition,
+    resources.us_core_condition_encounter_diagnosis_decoder(),
+  )
+}
+
+pub fn us_core_condition_encounter_diagnosis_update(
+  resource: resources.UsCoreConditionEncounterDiagnosis,
+  client: FhirClient,
+) -> Result(resources.UsCoreConditionEncounterDiagnosis, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_condition_encounter_diagnosis_to_json(resource),
+    resources.RtCondition,
+    resources.us_core_condition_encounter_diagnosis_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_condition_encounter_diagnosis_delete(
+  resource: resources.UsCoreConditionEncounterDiagnosis,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtCondition, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_condition_problems_health_concerns_create(
+  resource: resources.UsCoreConditionProblemsHealthConcerns,
+  client: FhirClient,
+) -> Result(resources.UsCoreConditionProblemsHealthConcerns, Err) {
+  any_create(
+    resources.us_core_condition_problems_health_concerns_to_json(resource),
+    resources.RtCondition,
+    resources.us_core_condition_problems_health_concerns_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_condition_problems_health_concerns_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreConditionProblemsHealthConcerns, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtCondition,
+    resources.us_core_condition_problems_health_concerns_decoder(),
+  )
+}
+
+pub fn us_core_condition_problems_health_concerns_update(
+  resource: resources.UsCoreConditionProblemsHealthConcerns,
+  client: FhirClient,
+) -> Result(resources.UsCoreConditionProblemsHealthConcerns, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_condition_problems_health_concerns_to_json(resource),
+    resources.RtCondition,
+    resources.us_core_condition_problems_health_concerns_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_condition_problems_health_concerns_delete(
+  resource: resources.UsCoreConditionProblemsHealthConcerns,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtCondition, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_coverage_create(
+  resource: resources.UsCoreCoverage,
+  client: FhirClient,
+) -> Result(resources.UsCoreCoverage, Err) {
+  any_create(
+    resources.us_core_coverage_to_json(resource),
+    resources.RtCoverage,
+    resources.us_core_coverage_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_coverage_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreCoverage, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtCoverage,
+    resources.us_core_coverage_decoder(),
+  )
+}
+
+pub fn us_core_coverage_update(
+  resource: resources.UsCoreCoverage,
+  client: FhirClient,
+) -> Result(resources.UsCoreCoverage, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_coverage_to_json(resource),
+    resources.RtCoverage,
+    resources.us_core_coverage_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_coverage_delete(
+  resource: resources.UsCoreCoverage,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtCoverage, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_diagnosticreport_lab_create(
+  resource: resources.UsCoreDiagnosticreportLab,
+  client: FhirClient,
+) -> Result(resources.UsCoreDiagnosticreportLab, Err) {
+  any_create(
+    resources.us_core_diagnosticreport_lab_to_json(resource),
+    resources.RtDiagnosticreport,
+    resources.us_core_diagnosticreport_lab_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_diagnosticreport_lab_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreDiagnosticreportLab, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtDiagnosticreport,
+    resources.us_core_diagnosticreport_lab_decoder(),
+  )
+}
+
+pub fn us_core_diagnosticreport_lab_update(
+  resource: resources.UsCoreDiagnosticreportLab,
+  client: FhirClient,
+) -> Result(resources.UsCoreDiagnosticreportLab, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_diagnosticreport_lab_to_json(resource),
+    resources.RtDiagnosticreport,
+    resources.us_core_diagnosticreport_lab_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_diagnosticreport_lab_delete(
+  resource: resources.UsCoreDiagnosticreportLab,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtDiagnosticreport, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_diagnosticreport_note_create(
+  resource: resources.UsCoreDiagnosticreportNote,
+  client: FhirClient,
+) -> Result(resources.UsCoreDiagnosticreportNote, Err) {
+  any_create(
+    resources.us_core_diagnosticreport_note_to_json(resource),
+    resources.RtDiagnosticreport,
+    resources.us_core_diagnosticreport_note_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_diagnosticreport_note_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreDiagnosticreportNote, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtDiagnosticreport,
+    resources.us_core_diagnosticreport_note_decoder(),
+  )
+}
+
+pub fn us_core_diagnosticreport_note_update(
+  resource: resources.UsCoreDiagnosticreportNote,
+  client: FhirClient,
+) -> Result(resources.UsCoreDiagnosticreportNote, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_diagnosticreport_note_to_json(resource),
+    resources.RtDiagnosticreport,
+    resources.us_core_diagnosticreport_note_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_diagnosticreport_note_delete(
+  resource: resources.UsCoreDiagnosticreportNote,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtDiagnosticreport, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_documentreference_create(
+  resource: resources.UsCoreDocumentreference,
+  client: FhirClient,
+) -> Result(resources.UsCoreDocumentreference, Err) {
+  any_create(
+    resources.us_core_documentreference_to_json(resource),
+    resources.RtDocumentreference,
+    resources.us_core_documentreference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_documentreference_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreDocumentreference, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtDocumentreference,
+    resources.us_core_documentreference_decoder(),
+  )
+}
+
+pub fn us_core_documentreference_update(
+  resource: resources.UsCoreDocumentreference,
+  client: FhirClient,
+) -> Result(resources.UsCoreDocumentreference, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_documentreference_to_json(resource),
+    resources.RtDocumentreference,
+    resources.us_core_documentreference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_documentreference_delete(
+  resource: resources.UsCoreDocumentreference,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtDocumentreference, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_encounter_create(
+  resource: resources.UsCoreEncounter,
+  client: FhirClient,
+) -> Result(resources.UsCoreEncounter, Err) {
+  any_create(
+    resources.us_core_encounter_to_json(resource),
+    resources.RtEncounter,
+    resources.us_core_encounter_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_encounter_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreEncounter, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtEncounter,
+    resources.us_core_encounter_decoder(),
+  )
+}
+
+pub fn us_core_encounter_update(
+  resource: resources.UsCoreEncounter,
+  client: FhirClient,
+) -> Result(resources.UsCoreEncounter, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_encounter_to_json(resource),
+    resources.RtEncounter,
+    resources.us_core_encounter_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_encounter_delete(
+  resource: resources.UsCoreEncounter,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtEncounter, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_goal_create(
+  resource: resources.UsCoreGoal,
+  client: FhirClient,
+) -> Result(resources.UsCoreGoal, Err) {
+  any_create(
+    resources.us_core_goal_to_json(resource),
+    resources.RtGoal,
+    resources.us_core_goal_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_goal_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreGoal, Err) {
+  any_read(id, client, resources.RtGoal, resources.us_core_goal_decoder())
+}
+
+pub fn us_core_goal_update(
+  resource: resources.UsCoreGoal,
+  client: FhirClient,
+) -> Result(resources.UsCoreGoal, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_goal_to_json(resource),
+    resources.RtGoal,
+    resources.us_core_goal_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_goal_delete(
+  resource: resources.UsCoreGoal,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtGoal, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_head_circumference_create(
+  resource: resources.UsCoreHeadCircumference,
+  client: FhirClient,
+) -> Result(resources.UsCoreHeadCircumference, Err) {
+  any_create(
+    resources.us_core_head_circumference_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_head_circumference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_head_circumference_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreHeadCircumference, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_head_circumference_decoder(),
+  )
+}
+
+pub fn us_core_head_circumference_update(
+  resource: resources.UsCoreHeadCircumference,
+  client: FhirClient,
+) -> Result(resources.UsCoreHeadCircumference, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_head_circumference_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_head_circumference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_head_circumference_delete(
+  resource: resources.UsCoreHeadCircumference,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_heart_rate_create(
+  resource: resources.UsCoreHeartRate,
+  client: FhirClient,
+) -> Result(resources.UsCoreHeartRate, Err) {
+  any_create(
+    resources.us_core_heart_rate_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_heart_rate_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_heart_rate_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreHeartRate, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_heart_rate_decoder(),
+  )
+}
+
+pub fn us_core_heart_rate_update(
+  resource: resources.UsCoreHeartRate,
+  client: FhirClient,
+) -> Result(resources.UsCoreHeartRate, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_heart_rate_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_heart_rate_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_heart_rate_delete(
+  resource: resources.UsCoreHeartRate,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_immunization_create(
+  resource: resources.UsCoreImmunization,
+  client: FhirClient,
+) -> Result(resources.UsCoreImmunization, Err) {
+  any_create(
+    resources.us_core_immunization_to_json(resource),
+    resources.RtImmunization,
+    resources.us_core_immunization_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_immunization_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreImmunization, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtImmunization,
+    resources.us_core_immunization_decoder(),
+  )
+}
+
+pub fn us_core_immunization_update(
+  resource: resources.UsCoreImmunization,
+  client: FhirClient,
+) -> Result(resources.UsCoreImmunization, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_immunization_to_json(resource),
+    resources.RtImmunization,
+    resources.us_core_immunization_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_immunization_delete(
+  resource: resources.UsCoreImmunization,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtImmunization, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_implantable_device_create(
+  resource: resources.UsCoreImplantableDevice,
+  client: FhirClient,
+) -> Result(resources.UsCoreImplantableDevice, Err) {
+  any_create(
+    resources.us_core_implantable_device_to_json(resource),
+    resources.RtDevice,
+    resources.us_core_implantable_device_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_implantable_device_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreImplantableDevice, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtDevice,
+    resources.us_core_implantable_device_decoder(),
+  )
+}
+
+pub fn us_core_implantable_device_update(
+  resource: resources.UsCoreImplantableDevice,
+  client: FhirClient,
+) -> Result(resources.UsCoreImplantableDevice, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_implantable_device_to_json(resource),
+    resources.RtDevice,
+    resources.us_core_implantable_device_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_implantable_device_delete(
+  resource: resources.UsCoreImplantableDevice,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtDevice, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_location_create(
+  resource: resources.UsCoreLocation,
+  client: FhirClient,
+) -> Result(resources.UsCoreLocation, Err) {
+  any_create(
+    resources.us_core_location_to_json(resource),
+    resources.RtLocation,
+    resources.us_core_location_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_location_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreLocation, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtLocation,
+    resources.us_core_location_decoder(),
+  )
+}
+
+pub fn us_core_location_update(
+  resource: resources.UsCoreLocation,
+  client: FhirClient,
+) -> Result(resources.UsCoreLocation, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_location_to_json(resource),
+    resources.RtLocation,
+    resources.us_core_location_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_location_delete(
+  resource: resources.UsCoreLocation,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtLocation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_medication_create(
+  resource: resources.UsCoreMedication,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedication, Err) {
+  any_create(
+    resources.us_core_medication_to_json(resource),
+    resources.RtMedication,
+    resources.us_core_medication_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_medication_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedication, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtMedication,
+    resources.us_core_medication_decoder(),
+  )
+}
+
+pub fn us_core_medication_update(
+  resource: resources.UsCoreMedication,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedication, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_medication_to_json(resource),
+    resources.RtMedication,
+    resources.us_core_medication_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_medication_delete(
+  resource: resources.UsCoreMedication,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtMedication, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_medicationdispense_create(
+  resource: resources.UsCoreMedicationdispense,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedicationdispense, Err) {
+  any_create(
+    resources.us_core_medicationdispense_to_json(resource),
+    resources.RtMedicationdispense,
+    resources.us_core_medicationdispense_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_medicationdispense_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedicationdispense, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtMedicationdispense,
+    resources.us_core_medicationdispense_decoder(),
+  )
+}
+
+pub fn us_core_medicationdispense_update(
+  resource: resources.UsCoreMedicationdispense,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedicationdispense, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_medicationdispense_to_json(resource),
+    resources.RtMedicationdispense,
+    resources.us_core_medicationdispense_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_medicationdispense_delete(
+  resource: resources.UsCoreMedicationdispense,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtMedicationdispense, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_medicationrequest_create(
+  resource: resources.UsCoreMedicationrequest,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedicationrequest, Err) {
+  any_create(
+    resources.us_core_medicationrequest_to_json(resource),
+    resources.RtMedicationrequest,
+    resources.us_core_medicationrequest_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_medicationrequest_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedicationrequest, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtMedicationrequest,
+    resources.us_core_medicationrequest_decoder(),
+  )
+}
+
+pub fn us_core_medicationrequest_update(
+  resource: resources.UsCoreMedicationrequest,
+  client: FhirClient,
+) -> Result(resources.UsCoreMedicationrequest, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_medicationrequest_to_json(resource),
+    resources.RtMedicationrequest,
+    resources.us_core_medicationrequest_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_medicationrequest_delete(
+  resource: resources.UsCoreMedicationrequest,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtMedicationrequest, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_observation_clinical_result_create(
+  resource: resources.UsCoreObservationClinicalResult,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationClinicalResult, Err) {
+  any_create(
+    resources.us_core_observation_clinical_result_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_clinical_result_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_clinical_result_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationClinicalResult, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_observation_clinical_result_decoder(),
+  )
+}
+
+pub fn us_core_observation_clinical_result_update(
+  resource: resources.UsCoreObservationClinicalResult,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationClinicalResult, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_observation_clinical_result_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_clinical_result_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_clinical_result_delete(
+  resource: resources.UsCoreObservationClinicalResult,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_observation_lab_create(
+  resource: resources.UsCoreObservationLab,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationLab, Err) {
+  any_create(
+    resources.us_core_observation_lab_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_lab_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_lab_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationLab, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_observation_lab_decoder(),
+  )
+}
+
+pub fn us_core_observation_lab_update(
+  resource: resources.UsCoreObservationLab,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationLab, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_observation_lab_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_lab_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_lab_delete(
+  resource: resources.UsCoreObservationLab,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_observation_occupation_create(
+  resource: resources.UsCoreObservationOccupation,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationOccupation, Err) {
+  any_create(
+    resources.us_core_observation_occupation_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_occupation_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_occupation_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationOccupation, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_observation_occupation_decoder(),
+  )
+}
+
+pub fn us_core_observation_occupation_update(
+  resource: resources.UsCoreObservationOccupation,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationOccupation, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_observation_occupation_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_occupation_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_occupation_delete(
+  resource: resources.UsCoreObservationOccupation,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_observation_pregnancyintent_create(
+  resource: resources.UsCoreObservationPregnancyintent,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationPregnancyintent, Err) {
+  any_create(
+    resources.us_core_observation_pregnancyintent_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_pregnancyintent_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_pregnancyintent_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationPregnancyintent, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_observation_pregnancyintent_decoder(),
+  )
+}
+
+pub fn us_core_observation_pregnancyintent_update(
+  resource: resources.UsCoreObservationPregnancyintent,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationPregnancyintent, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_observation_pregnancyintent_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_pregnancyintent_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_pregnancyintent_delete(
+  resource: resources.UsCoreObservationPregnancyintent,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_observation_pregnancystatus_create(
+  resource: resources.UsCoreObservationPregnancystatus,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationPregnancystatus, Err) {
+  any_create(
+    resources.us_core_observation_pregnancystatus_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_pregnancystatus_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_pregnancystatus_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationPregnancystatus, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_observation_pregnancystatus_decoder(),
+  )
+}
+
+pub fn us_core_observation_pregnancystatus_update(
+  resource: resources.UsCoreObservationPregnancystatus,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationPregnancystatus, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_observation_pregnancystatus_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_pregnancystatus_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_pregnancystatus_delete(
+  resource: resources.UsCoreObservationPregnancystatus,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_observation_screening_assessment_create(
+  resource: resources.UsCoreObservationScreeningAssessment,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationScreeningAssessment, Err) {
+  any_create(
+    resources.us_core_observation_screening_assessment_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_screening_assessment_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_screening_assessment_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationScreeningAssessment, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_observation_screening_assessment_decoder(),
+  )
+}
+
+pub fn us_core_observation_screening_assessment_update(
+  resource: resources.UsCoreObservationScreeningAssessment,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationScreeningAssessment, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_observation_screening_assessment_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_screening_assessment_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_screening_assessment_delete(
+  resource: resources.UsCoreObservationScreeningAssessment,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_observation_sexual_orientation_create(
+  resource: resources.UsCoreObservationSexualOrientation,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationSexualOrientation, Err) {
+  any_create(
+    resources.us_core_observation_sexual_orientation_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_sexual_orientation_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_sexual_orientation_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationSexualOrientation, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_observation_sexual_orientation_decoder(),
+  )
+}
+
+pub fn us_core_observation_sexual_orientation_update(
+  resource: resources.UsCoreObservationSexualOrientation,
+  client: FhirClient,
+) -> Result(resources.UsCoreObservationSexualOrientation, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_observation_sexual_orientation_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_observation_sexual_orientation_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_observation_sexual_orientation_delete(
+  resource: resources.UsCoreObservationSexualOrientation,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_organization_create(
+  resource: resources.UsCoreOrganization,
+  client: FhirClient,
+) -> Result(resources.UsCoreOrganization, Err) {
+  any_create(
+    resources.us_core_organization_to_json(resource),
+    resources.RtOrganization,
+    resources.us_core_organization_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_organization_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreOrganization, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtOrganization,
+    resources.us_core_organization_decoder(),
+  )
+}
+
+pub fn us_core_organization_update(
+  resource: resources.UsCoreOrganization,
+  client: FhirClient,
+) -> Result(resources.UsCoreOrganization, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_organization_to_json(resource),
+    resources.RtOrganization,
+    resources.us_core_organization_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_organization_delete(
+  resource: resources.UsCoreOrganization,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtOrganization, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_patient_create(
+  resource: resources.UsCorePatient,
+  client: FhirClient,
+) -> Result(resources.UsCorePatient, Err) {
+  any_create(
+    resources.us_core_patient_to_json(resource),
+    resources.RtPatient,
+    resources.us_core_patient_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_patient_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCorePatient, Err) {
+  any_read(id, client, resources.RtPatient, resources.us_core_patient_decoder())
+}
+
+pub fn us_core_patient_update(
+  resource: resources.UsCorePatient,
+  client: FhirClient,
+) -> Result(resources.UsCorePatient, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_patient_to_json(resource),
+    resources.RtPatient,
+    resources.us_core_patient_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_patient_delete(
+  resource: resources.UsCorePatient,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtPatient, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_practitioner_create(
+  resource: resources.UsCorePractitioner,
+  client: FhirClient,
+) -> Result(resources.UsCorePractitioner, Err) {
+  any_create(
+    resources.us_core_practitioner_to_json(resource),
+    resources.RtPractitioner,
+    resources.us_core_practitioner_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_practitioner_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCorePractitioner, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtPractitioner,
+    resources.us_core_practitioner_decoder(),
+  )
+}
+
+pub fn us_core_practitioner_update(
+  resource: resources.UsCorePractitioner,
+  client: FhirClient,
+) -> Result(resources.UsCorePractitioner, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_practitioner_to_json(resource),
+    resources.RtPractitioner,
+    resources.us_core_practitioner_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_practitioner_delete(
+  resource: resources.UsCorePractitioner,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtPractitioner, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_practitionerrole_create(
+  resource: resources.UsCorePractitionerrole,
+  client: FhirClient,
+) -> Result(resources.UsCorePractitionerrole, Err) {
+  any_create(
+    resources.us_core_practitionerrole_to_json(resource),
+    resources.RtPractitionerrole,
+    resources.us_core_practitionerrole_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_practitionerrole_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCorePractitionerrole, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtPractitionerrole,
+    resources.us_core_practitionerrole_decoder(),
+  )
+}
+
+pub fn us_core_practitionerrole_update(
+  resource: resources.UsCorePractitionerrole,
+  client: FhirClient,
+) -> Result(resources.UsCorePractitionerrole, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_practitionerrole_to_json(resource),
+    resources.RtPractitionerrole,
+    resources.us_core_practitionerrole_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_practitionerrole_delete(
+  resource: resources.UsCorePractitionerrole,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtPractitionerrole, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_procedure_create(
+  resource: resources.UsCoreProcedure,
+  client: FhirClient,
+) -> Result(resources.UsCoreProcedure, Err) {
+  any_create(
+    resources.us_core_procedure_to_json(resource),
+    resources.RtProcedure,
+    resources.us_core_procedure_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_procedure_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreProcedure, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtProcedure,
+    resources.us_core_procedure_decoder(),
+  )
+}
+
+pub fn us_core_procedure_update(
+  resource: resources.UsCoreProcedure,
+  client: FhirClient,
+) -> Result(resources.UsCoreProcedure, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_procedure_to_json(resource),
+    resources.RtProcedure,
+    resources.us_core_procedure_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_procedure_delete(
+  resource: resources.UsCoreProcedure,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtProcedure, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_provenance_create(
+  resource: resources.UsCoreProvenance,
+  client: FhirClient,
+) -> Result(resources.UsCoreProvenance, Err) {
+  any_create(
+    resources.us_core_provenance_to_json(resource),
+    resources.RtProvenance,
+    resources.us_core_provenance_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_provenance_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreProvenance, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtProvenance,
+    resources.us_core_provenance_decoder(),
+  )
+}
+
+pub fn us_core_provenance_update(
+  resource: resources.UsCoreProvenance,
+  client: FhirClient,
+) -> Result(resources.UsCoreProvenance, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_provenance_to_json(resource),
+    resources.RtProvenance,
+    resources.us_core_provenance_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_provenance_delete(
+  resource: resources.UsCoreProvenance,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtProvenance, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_pulse_oximetry_create(
+  resource: resources.UsCorePulseOximetry,
+  client: FhirClient,
+) -> Result(resources.UsCorePulseOximetry, Err) {
+  any_create(
+    resources.us_core_pulse_oximetry_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_pulse_oximetry_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_pulse_oximetry_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCorePulseOximetry, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_pulse_oximetry_decoder(),
+  )
+}
+
+pub fn us_core_pulse_oximetry_update(
+  resource: resources.UsCorePulseOximetry,
+  client: FhirClient,
+) -> Result(resources.UsCorePulseOximetry, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_pulse_oximetry_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_pulse_oximetry_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_pulse_oximetry_delete(
+  resource: resources.UsCorePulseOximetry,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_questionnaireresponse_create(
+  resource: resources.UsCoreQuestionnaireresponse,
+  client: FhirClient,
+) -> Result(resources.UsCoreQuestionnaireresponse, Err) {
+  any_create(
+    resources.us_core_questionnaireresponse_to_json(resource),
+    resources.RtQuestionnaireresponse,
+    resources.us_core_questionnaireresponse_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_questionnaireresponse_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreQuestionnaireresponse, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtQuestionnaireresponse,
+    resources.us_core_questionnaireresponse_decoder(),
+  )
+}
+
+pub fn us_core_questionnaireresponse_update(
+  resource: resources.UsCoreQuestionnaireresponse,
+  client: FhirClient,
+) -> Result(resources.UsCoreQuestionnaireresponse, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_questionnaireresponse_to_json(resource),
+    resources.RtQuestionnaireresponse,
+    resources.us_core_questionnaireresponse_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_questionnaireresponse_delete(
+  resource: resources.UsCoreQuestionnaireresponse,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtQuestionnaireresponse, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_relatedperson_create(
+  resource: resources.UsCoreRelatedperson,
+  client: FhirClient,
+) -> Result(resources.UsCoreRelatedperson, Err) {
+  any_create(
+    resources.us_core_relatedperson_to_json(resource),
+    resources.RtRelatedperson,
+    resources.us_core_relatedperson_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_relatedperson_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreRelatedperson, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtRelatedperson,
+    resources.us_core_relatedperson_decoder(),
+  )
+}
+
+pub fn us_core_relatedperson_update(
+  resource: resources.UsCoreRelatedperson,
+  client: FhirClient,
+) -> Result(resources.UsCoreRelatedperson, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_relatedperson_to_json(resource),
+    resources.RtRelatedperson,
+    resources.us_core_relatedperson_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_relatedperson_delete(
+  resource: resources.UsCoreRelatedperson,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtRelatedperson, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_respiratory_rate_create(
+  resource: resources.UsCoreRespiratoryRate,
+  client: FhirClient,
+) -> Result(resources.UsCoreRespiratoryRate, Err) {
+  any_create(
+    resources.us_core_respiratory_rate_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_respiratory_rate_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_respiratory_rate_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreRespiratoryRate, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_respiratory_rate_decoder(),
+  )
+}
+
+pub fn us_core_respiratory_rate_update(
+  resource: resources.UsCoreRespiratoryRate,
+  client: FhirClient,
+) -> Result(resources.UsCoreRespiratoryRate, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_respiratory_rate_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_respiratory_rate_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_respiratory_rate_delete(
+  resource: resources.UsCoreRespiratoryRate,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_servicerequest_create(
+  resource: resources.UsCoreServicerequest,
+  client: FhirClient,
+) -> Result(resources.UsCoreServicerequest, Err) {
+  any_create(
+    resources.us_core_servicerequest_to_json(resource),
+    resources.RtServicerequest,
+    resources.us_core_servicerequest_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_servicerequest_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreServicerequest, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtServicerequest,
+    resources.us_core_servicerequest_decoder(),
+  )
+}
+
+pub fn us_core_servicerequest_update(
+  resource: resources.UsCoreServicerequest,
+  client: FhirClient,
+) -> Result(resources.UsCoreServicerequest, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_servicerequest_to_json(resource),
+    resources.RtServicerequest,
+    resources.us_core_servicerequest_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_servicerequest_delete(
+  resource: resources.UsCoreServicerequest,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtServicerequest, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_simple_observation_create(
+  resource: resources.UsCoreSimpleObservation,
+  client: FhirClient,
+) -> Result(resources.UsCoreSimpleObservation, Err) {
+  any_create(
+    resources.us_core_simple_observation_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_simple_observation_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_simple_observation_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreSimpleObservation, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_simple_observation_decoder(),
+  )
+}
+
+pub fn us_core_simple_observation_update(
+  resource: resources.UsCoreSimpleObservation,
+  client: FhirClient,
+) -> Result(resources.UsCoreSimpleObservation, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_simple_observation_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_simple_observation_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_simple_observation_delete(
+  resource: resources.UsCoreSimpleObservation,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_smokingstatus_create(
+  resource: resources.UsCoreSmokingstatus,
+  client: FhirClient,
+) -> Result(resources.UsCoreSmokingstatus, Err) {
+  any_create(
+    resources.us_core_smokingstatus_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_smokingstatus_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_smokingstatus_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreSmokingstatus, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_smokingstatus_decoder(),
+  )
+}
+
+pub fn us_core_smokingstatus_update(
+  resource: resources.UsCoreSmokingstatus,
+  client: FhirClient,
+) -> Result(resources.UsCoreSmokingstatus, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_smokingstatus_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_smokingstatus_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_smokingstatus_delete(
+  resource: resources.UsCoreSmokingstatus,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_specimen_create(
+  resource: resources.UsCoreSpecimen,
+  client: FhirClient,
+) -> Result(resources.UsCoreSpecimen, Err) {
+  any_create(
+    resources.us_core_specimen_to_json(resource),
+    resources.RtSpecimen,
+    resources.us_core_specimen_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_specimen_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreSpecimen, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtSpecimen,
+    resources.us_core_specimen_decoder(),
+  )
+}
+
+pub fn us_core_specimen_update(
+  resource: resources.UsCoreSpecimen,
+  client: FhirClient,
+) -> Result(resources.UsCoreSpecimen, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_specimen_to_json(resource),
+    resources.RtSpecimen,
+    resources.us_core_specimen_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_specimen_delete(
+  resource: resources.UsCoreSpecimen,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtSpecimen, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_treatment_intervention_preference_create(
+  resource: resources.UsCoreTreatmentInterventionPreference,
+  client: FhirClient,
+) -> Result(resources.UsCoreTreatmentInterventionPreference, Err) {
+  any_create(
+    resources.us_core_treatment_intervention_preference_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_treatment_intervention_preference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_treatment_intervention_preference_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreTreatmentInterventionPreference, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_treatment_intervention_preference_decoder(),
+  )
+}
+
+pub fn us_core_treatment_intervention_preference_update(
+  resource: resources.UsCoreTreatmentInterventionPreference,
+  client: FhirClient,
+) -> Result(resources.UsCoreTreatmentInterventionPreference, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_treatment_intervention_preference_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_treatment_intervention_preference_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_treatment_intervention_preference_delete(
+  resource: resources.UsCoreTreatmentInterventionPreference,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
+pub fn us_core_vital_signs_create(
+  resource: resources.UsCoreVitalSigns,
+  client: FhirClient,
+) -> Result(resources.UsCoreVitalSigns, Err) {
+  any_create(
+    resources.us_core_vital_signs_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_vital_signs_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_vital_signs_read(
+  id: String,
+  client: FhirClient,
+) -> Result(resources.UsCoreVitalSigns, Err) {
+  any_read(
+    id,
+    client,
+    resources.RtObservation,
+    resources.us_core_vital_signs_decoder(),
+  )
+}
+
+pub fn us_core_vital_signs_update(
+  resource: resources.UsCoreVitalSigns,
+  client: FhirClient,
+) -> Result(resources.UsCoreVitalSigns, Err) {
+  any_update(
+    resource.id,
+    resources.us_core_vital_signs_to_json(resource),
+    resources.RtObservation,
+    resources.us_core_vital_signs_decoder(),
+    client,
+  )
+}
+
+pub fn us_core_vital_signs_delete(
+  resource: resources.UsCoreVitalSigns,
+  client: FhirClient,
+) -> Result(sansio.OperationoutcomeOrHTTP, Err) {
+  case resource.id {
+    Some(id) -> any_delete(id, resources.RtObservation, client)
+    None -> Error(ErrSansio(ErrNoId))
+  }
+}
+
 pub fn bundle_search_bundled(sp: search_params.Bundle, client: FhirClient) {
   search_params.to_string([
     #("identifier", sp.identifier),
