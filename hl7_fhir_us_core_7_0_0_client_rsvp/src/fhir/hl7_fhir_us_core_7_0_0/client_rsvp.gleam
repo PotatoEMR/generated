@@ -1,0 +1,504 @@
+////[https://hl7.org/fhir/hl7_fhir_us_core_7_0_0](https://hl7.org/fhir/hl7_fhir_us_core_7_0_0) hl7_fhir_us_core_7_0_0 client using rsvp
+
+import fhir/hl7_fhir_us_core_7_0_0/resources
+import fhir/hl7_fhir_us_core_7_0_0/sansio.{type FhirClient}
+import fhir/hl7_fhir_us_core_7_0_0/search_params
+import gleam/dynamic/decode.{type Decoder}
+import gleam/http/request.{type Request}
+import gleam/http/response.{type Response}
+import gleam/io
+import gleam/json.{type Json}
+import gleam/list
+import gleam/option.{type Option, None, Some}
+import gleam/string
+import lustre/effect.{type Effect}
+import rsvp
+
+pub type Err {
+  ErrRsvp(err: rsvp.Error(String))
+  ErrSansio(err: sansio.ErrResp)
+}
+
+pub fn err_to_string(err: Err) -> String {
+  case err {
+    ErrRsvp(err:) -> rsvp_err_to_string(err)
+    ErrSansio(err:) -> sansio.err_resp_to_string(err)
+  }
+}
+
+/// When using rsvp, if you attempt update or delete a resource with no id,
+/// we do not even send the request or give you an effect to use.
+/// Instead of an effect you get just Error(ErrNoId)
+pub type ErrNoId {
+  ErrNoId
+}
+
+fn any_create(
+  resource: Json,
+  res_type: resources.ResourceType,
+  resource_dec: Decoder(r),
+  client: FhirClient,
+  handle_response: fn(Result(r, Err)) -> a,
+) -> Effect(a) {
+  let req = sansio.any_create_req(resource, res_type, client)
+  sendreq_handleresponse(req, resource_dec, handle_response, client)
+}
+
+fn any_read(
+  id: String,
+  res_type: resources.ResourceType,
+  resource_dec: Decoder(r),
+  client: FhirClient,
+  handle_response: fn(Result(r, Err)) -> a,
+) -> Effect(a) {
+  let req = sansio.any_read_req(id, res_type, client)
+  sendreq_handleresponse(req, resource_dec, handle_response, client)
+}
+
+fn any_update(
+  id: Option(String),
+  resource: Json,
+  res_type: resources.ResourceType,
+  resource_dec: Decoder(r),
+  client: FhirClient,
+  handle_response: fn(Result(r, Err)) -> a,
+) -> Result(Effect(a), ErrNoId) {
+  let req = sansio.any_update_req(id, resource, res_type, client)
+  case req {
+    Ok(req) ->
+      Ok(sendreq_handleresponse(req, resource_dec, handle_response, client))
+    Error(_) -> Error(ErrNoId)
+  }
+}
+
+pub fn any_delete(
+  id: String,
+  res_type: resources.ResourceType,
+  client: FhirClient,
+  handle_response: fn(Result(sansio.OperationoutcomeOrHTTP, Err)) -> a,
+) -> Effect(a) {
+  let req = sansio.any_delete_req(id, res_type, client)
+  case client.print_sent_requests {
+    sansio.LoggingOn -> req |> sansio.req_to_string |> io.println
+    sansio.LoggingOff -> Nil
+  }
+  let handle_read = fn(resp_res: Result(Response(String), rsvp.Error(String))) {
+    case client.print_received_responses {
+      sansio.LoggingOn ->
+        case resp_res {
+          Ok(resp) -> resp |> sansio.resp_to_string
+          Error(err) -> err |> rsvp_err_to_string
+        }
+        |> io.println
+      sansio.LoggingOff -> Nil
+    }
+    handle_response(case resp_res {
+      Error(err) -> Error(ErrRsvp(err))
+      Ok(resp) ->
+        case sansio.delete_response(resp) {
+          Ok(oo_or_http) -> Ok(oo_or_http)
+          Error(err) -> Error(ErrSansio(err))
+        }
+    })
+  }
+  let handler = rsvp.expect_any_response(handle_read)
+  req
+  |> request.set_body(case req.body {
+    None -> ""
+    Some(body) -> json.to_string(body)
+  })
+  |> rsvp.send(handler)
+}
+
+/// write out search string manually, in case typed search params don't work
+pub fn search_any(
+  search_string: String,
+  res_type: resources.ResourceType,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> msg,
+) -> Effect(msg) {
+  let req = sansio.any_search_req(search_string, res_type, client)
+  sendreq_handleresponse(
+    req,
+    resources.bundle_decoder(),
+    handle_response,
+    client,
+  )
+}
+
+/// instead of failing whole decoder on bundle entry with invalid resource,
+/// return valid resources alongside list of errors
+pub fn search_any_forgiving(
+  search_string: String,
+  res_type: resources.ResourceType,
+  client: FhirClient,
+  handle_response: fn(Result(resources.BundleForgiving, Err)) -> msg,
+) -> Effect(msg) {
+  let req = sansio.any_search_req(search_string, res_type, client)
+  sendreq_handleresponse(
+    req,
+    resources.bundle_decoder_forgiving(),
+    handle_response,
+    client,
+  )
+}
+
+// run any operation string on any resource string, optionally using Parameters
+pub fn operation_any(
+  params params: Option(resources.Parameters),
+  operation_name operation_name: String,
+  res_type res_type: resources.ResourceType,
+  res_id res_id: Option(String),
+  res_decoder res_decoder: Decoder(res),
+  client client: FhirClient,
+  handle_response handle_response: fn(Result(res, Err)) -> msg,
+) -> Effect(msg) {
+  let req =
+    sansio.any_operation_req(res_type, res_id, operation_name, params, client)
+  sendreq_handleresponse(req, res_decoder, handle_response, client)
+}
+
+pub fn batch(
+  reqs: List(Request(Option(Json))),
+  bundle_type: sansio.PostBundleType,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> msg,
+) -> Effect(msg) {
+  let req = sansio.batch_req(reqs, bundle_type, client)
+  sendreq_handleresponse(
+    req,
+    resources.bundle_decoder(),
+    handle_response,
+    client,
+  )
+}
+
+fn sendreq_handleresponse(
+  req: Request(Option(Json)),
+  res_dec: Decoder(r),
+  handle_response: fn(Result(r, Err)) -> a,
+  client: FhirClient,
+) -> Effect(a) {
+  sendreq_handleresponse_andprocess(
+    req,
+    res_dec,
+    handle_response,
+    fn(a) { a },
+    client,
+  )
+}
+
+fn sendreq_handleresponse_andprocess(
+  req: Request(Option(Json)),
+  res_dec: Decoder(r),
+  handle_response: fn(Result(b, Err)) -> a,
+  process_res: fn(r) -> b,
+  client: FhirClient,
+) -> Effect(a) {
+  case client.print_sent_requests {
+    sansio.LoggingOn -> req |> sansio.req_to_string |> io.println
+    sansio.LoggingOff -> Nil
+  }
+  let handle_read = fn(resp_res: Result(Response(String), rsvp.Error(String))) {
+    case client.print_received_responses {
+      sansio.LoggingOn ->
+        case resp_res {
+          Ok(resp) -> resp |> sansio.resp_to_string
+          Error(err) -> err |> rsvp_err_to_string
+        }
+        |> io.println
+      sansio.LoggingOff -> Nil
+    }
+    handle_response(case resp_res {
+      Error(err) -> Error(ErrRsvp(err))
+      Ok(resp_res) -> {
+        case sansio.any_response(resp_res, res_dec) {
+          Ok(res) -> Ok(process_res(res))
+          Error(err) -> Error(ErrSansio(err))
+        }
+      }
+    })
+  }
+  let handler = rsvp.expect_any_response(handle_read)
+  req
+  |> request.set_body(case req.body {
+    None -> ""
+    Some(body) -> json.to_string(body)
+  })
+  |> rsvp.send(handler)
+}
+
+fn rsvp_err_to_string(err: rsvp.Error(String)) -> String {
+  case err {
+    rsvp.BadBody -> "invalid http response body"
+    rsvp.BadUrl(url) -> "invalid url: " <> url
+    rsvp.HttpError(resp) -> "resp not 2xx: " <> sansio.resp_to_string(resp)
+    rsvp.JsonError(err) ->
+      "err decoding json: "
+      <> case err {
+        json.UnexpectedEndOfInput -> "unexpected end of input"
+        json.UnexpectedByte(err) -> "unexpected byte: " <> err
+        json.UnexpectedSequence(err) -> "unexpected sequence " <> err
+        json.UnableToDecode(errors) ->
+          "unable to decode: "
+          <> list.map(errors, fn(error) {
+            "expected "
+            <> error.expected
+            <> " but found "
+            <> error.found
+            <> " at "
+            <> string.join(error.path, "/")
+          })
+          |> string.join("\n")
+      }
+    rsvp.NetworkError ->
+      "network error, http request could not connect to server"
+    rsvp.UnhandledResponse(resp) ->
+      "rsvp handler does not know how to handle response: "
+      <> sansio.resp_to_string(resp)
+  }
+}
+
+pub fn bundle_create(
+  resource: resources.Bundle,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> a,
+) -> Effect(a) {
+  any_create(
+    resources.bundle_to_json(resource),
+    resources.RtBundle,
+    resources.bundle_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn bundle_read(
+  id: String,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> a,
+) -> Effect(a) {
+  any_read(
+    id,
+    resources.RtBundle,
+    resources.bundle_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn bundle_update(
+  resource: resources.Bundle,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> a,
+) -> Result(Effect(a), ErrNoId) {
+  any_update(
+    resource.id,
+    resources.bundle_to_json(resource),
+    resources.RtBundle,
+    resources.bundle_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn bundle_delete(
+  resource: resources.Bundle,
+  client: FhirClient,
+  handle_response: fn(Result(sansio.OperationoutcomeOrHTTP, Err)) -> a,
+) -> Result(Effect(a), ErrNoId) {
+  case resource.id {
+    Some(id) -> Ok(any_delete(id, resources.RtBundle, client, handle_response))
+    None -> Error(ErrNoId)
+  }
+}
+
+pub fn endpoint_create(
+  resource: resources.Endpoint,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Endpoint, Err)) -> a,
+) -> Effect(a) {
+  any_create(
+    resources.endpoint_to_json(resource),
+    resources.RtEndpoint,
+    resources.endpoint_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn endpoint_read(
+  id: String,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Endpoint, Err)) -> a,
+) -> Effect(a) {
+  any_read(
+    id,
+    resources.RtEndpoint,
+    resources.endpoint_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn endpoint_update(
+  resource: resources.Endpoint,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Endpoint, Err)) -> a,
+) -> Result(Effect(a), ErrNoId) {
+  any_update(
+    resource.id,
+    resources.endpoint_to_json(resource),
+    resources.RtEndpoint,
+    resources.endpoint_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn endpoint_delete(
+  resource: resources.Endpoint,
+  client: FhirClient,
+  handle_response: fn(Result(sansio.OperationoutcomeOrHTTP, Err)) -> a,
+) -> Result(Effect(a), ErrNoId) {
+  case resource.id {
+    Some(id) ->
+      Ok(any_delete(id, resources.RtEndpoint, client, handle_response))
+    None -> Error(ErrNoId)
+  }
+}
+
+pub fn operationoutcome_create(
+  resource: resources.Operationoutcome,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Operationoutcome, Err)) -> a,
+) -> Effect(a) {
+  any_create(
+    resources.operationoutcome_to_json(resource),
+    resources.RtOperationoutcome,
+    resources.operationoutcome_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn operationoutcome_read(
+  id: String,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Operationoutcome, Err)) -> a,
+) -> Effect(a) {
+  any_read(
+    id,
+    resources.RtOperationoutcome,
+    resources.operationoutcome_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn operationoutcome_update(
+  resource: resources.Operationoutcome,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Operationoutcome, Err)) -> a,
+) -> Result(Effect(a), ErrNoId) {
+  any_update(
+    resource.id,
+    resources.operationoutcome_to_json(resource),
+    resources.RtOperationoutcome,
+    resources.operationoutcome_decoder(),
+    client,
+    handle_response,
+  )
+}
+
+pub fn operationoutcome_delete(
+  resource: resources.Operationoutcome,
+  client: FhirClient,
+  handle_response: fn(Result(sansio.OperationoutcomeOrHTTP, Err)) -> a,
+) -> Result(Effect(a), ErrNoId) {
+  case resource.id {
+    Some(id) ->
+      Ok(any_delete(id, resources.RtOperationoutcome, client, handle_response))
+    None -> Error(ErrNoId)
+  }
+}
+
+pub fn bundle_search_bundled(
+  sp: search_params.Bundle,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> msg,
+) -> Effect(msg) {
+  search_params.to_string([
+    #("identifier", sp.identifier),
+    #("composition", sp.composition),
+    #("type", sp.type_),
+    #("message", sp.message),
+    #("timestamp", sp.timestamp),
+  ])
+  |> search_any(resources.RtBundle, client, handle_response)
+}
+
+pub fn bundle_search(
+  sp: search_params.Bundle,
+  client: FhirClient,
+  handle_response: fn(Result(List(resources.Bundle), Err)) -> msg,
+) -> Effect(msg) {
+  bundle_search_bundled(sp, client, fn(resp) {
+    handle_response(case resp {
+      Ok(bundle) -> Ok({ bundle |> sansio.bundle_to_groupedresources }.bundle)
+      Error(error) -> Error(error)
+    })
+  })
+}
+
+pub fn endpoint_search_bundled(
+  sp: search_params.Endpoint,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> msg,
+) -> Effect(msg) {
+  search_params.to_string([
+    #("payload-type", sp.payload_type),
+    #("identifier", sp.identifier),
+    #("organization", sp.organization),
+    #("connection-type", sp.connection_type),
+    #("name", sp.name),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtEndpoint, client, handle_response)
+}
+
+pub fn endpoint_search(
+  sp: search_params.Endpoint,
+  client: FhirClient,
+  handle_response: fn(Result(List(resources.Endpoint), Err)) -> msg,
+) -> Effect(msg) {
+  endpoint_search_bundled(sp, client, fn(resp) {
+    handle_response(case resp {
+      Ok(bundle) -> Ok({ bundle |> sansio.bundle_to_groupedresources }.endpoint)
+      Error(error) -> Error(error)
+    })
+  })
+}
+
+pub fn operationoutcome_search_bundled(
+  _sp: search_params.Operationoutcome,
+  client: FhirClient,
+  handle_response: fn(Result(resources.Bundle, Err)) -> msg,
+) -> Effect(msg) {
+  search_params.to_string([])
+  |> search_any(resources.RtOperationoutcome, client, handle_response)
+}
+
+pub fn operationoutcome_search(
+  sp: search_params.Operationoutcome,
+  client: FhirClient,
+  handle_response: fn(Result(List(resources.Operationoutcome), Err)) -> msg,
+) -> Effect(msg) {
+  operationoutcome_search_bundled(sp, client, fn(resp) {
+    handle_response(case resp {
+      Ok(bundle) ->
+        Ok({ bundle |> sansio.bundle_to_groupedresources }.operationoutcome)
+      Error(error) -> Error(error)
+    })
+  })
+}
