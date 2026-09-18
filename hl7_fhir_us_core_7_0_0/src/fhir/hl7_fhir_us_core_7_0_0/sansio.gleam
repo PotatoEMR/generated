@@ -501,11 +501,139 @@ pub type GroupedResources {
     bundle: List(resources.Bundle),
     endpoint: List(resources.Endpoint),
     operationoutcome: List(resources.Operationoutcome),
+    head_occipital_frontal_circumference_percentile: List(
+      resources.HeadOccipitalFrontalCircumferencePercentile,
+    ),
+    pediatric_bmi_for_age: List(resources.PediatricBmiForAge),
+    pediatric_weight_for_height: List(resources.PediatricWeightForHeight),
+    us_core_allergyintolerance: List(resources.UsCoreAllergyintolerance),
+    us_core_average_blood_pressure: List(resources.UsCoreAverageBloodPressure),
+    us_core_blood_pressure: List(resources.UsCoreBloodPressure),
+    us_core_bmi: List(resources.UsCoreBmi),
+    us_core_body_height: List(resources.UsCoreBodyHeight),
+    us_core_body_temperature: List(resources.UsCoreBodyTemperature),
+    us_core_body_weight: List(resources.UsCoreBodyWeight),
+    us_core_care_experience_preference: List(
+      resources.UsCoreCareExperiencePreference,
+    ),
+    us_core_careplan: List(resources.UsCoreCareplan),
+    us_core_careteam: List(resources.UsCoreCareteam),
+    us_core_condition_encounter_diagnosis: List(
+      resources.UsCoreConditionEncounterDiagnosis,
+    ),
+    us_core_condition_problems_health_concerns: List(
+      resources.UsCoreConditionProblemsHealthConcerns,
+    ),
+    us_core_coverage: List(resources.UsCoreCoverage),
+    us_core_diagnosticreport_lab: List(resources.UsCoreDiagnosticreportLab),
+    us_core_diagnosticreport_note: List(resources.UsCoreDiagnosticreportNote),
+    us_core_documentreference: List(resources.UsCoreDocumentreference),
+    us_core_encounter: List(resources.UsCoreEncounter),
+    us_core_goal: List(resources.UsCoreGoal),
+    us_core_head_circumference: List(resources.UsCoreHeadCircumference),
+    us_core_heart_rate: List(resources.UsCoreHeartRate),
+    us_core_immunization: List(resources.UsCoreImmunization),
+    us_core_implantable_device: List(resources.UsCoreImplantableDevice),
+    us_core_location: List(resources.UsCoreLocation),
+    us_core_medication: List(resources.UsCoreMedication),
+    us_core_medicationdispense: List(resources.UsCoreMedicationdispense),
+    us_core_medicationrequest: List(resources.UsCoreMedicationrequest),
+    us_core_observation_clinical_result: List(
+      resources.UsCoreObservationClinicalResult,
+    ),
+    us_core_observation_lab: List(resources.UsCoreObservationLab),
+    us_core_observation_occupation: List(resources.UsCoreObservationOccupation),
+    us_core_observation_pregnancyintent: List(
+      resources.UsCoreObservationPregnancyintent,
+    ),
+    us_core_observation_pregnancystatus: List(
+      resources.UsCoreObservationPregnancystatus,
+    ),
+    us_core_observation_screening_assessment: List(
+      resources.UsCoreObservationScreeningAssessment,
+    ),
+    us_core_observation_sexual_orientation: List(
+      resources.UsCoreObservationSexualOrientation,
+    ),
+    us_core_organization: List(resources.UsCoreOrganization),
+    us_core_patient: List(resources.UsCorePatient),
+    us_core_practitioner: List(resources.UsCorePractitioner),
+    us_core_practitionerrole: List(resources.UsCorePractitionerrole),
+    us_core_procedure: List(resources.UsCoreProcedure),
+    us_core_provenance: List(resources.UsCoreProvenance),
+    us_core_pulse_oximetry: List(resources.UsCorePulseOximetry),
+    us_core_questionnaireresponse: List(resources.UsCoreQuestionnaireresponse),
+    us_core_relatedperson: List(resources.UsCoreRelatedperson),
+    us_core_respiratory_rate: List(resources.UsCoreRespiratoryRate),
+    us_core_servicerequest: List(resources.UsCoreServicerequest),
+    us_core_simple_observation: List(resources.UsCoreSimpleObservation),
+    us_core_smokingstatus: List(resources.UsCoreSmokingstatus),
+    us_core_specimen: List(resources.UsCoreSpecimen),
+    us_core_treatment_intervention_preference: List(
+      resources.UsCoreTreatmentInterventionPreference,
+    ),
+    us_core_vital_signs: List(resources.UsCoreVitalSigns),
   )
 }
 
 pub fn groupedresources_new() -> GroupedResources {
-  GroupedResources(bundle: [], endpoint: [], operationoutcome: [])
+  GroupedResources(
+    bundle: [],
+    endpoint: [],
+    operationoutcome: [],
+    head_occipital_frontal_circumference_percentile: [],
+    pediatric_bmi_for_age: [],
+    pediatric_weight_for_height: [],
+    us_core_allergyintolerance: [],
+    us_core_average_blood_pressure: [],
+    us_core_blood_pressure: [],
+    us_core_bmi: [],
+    us_core_body_height: [],
+    us_core_body_temperature: [],
+    us_core_body_weight: [],
+    us_core_care_experience_preference: [],
+    us_core_careplan: [],
+    us_core_careteam: [],
+    us_core_condition_encounter_diagnosis: [],
+    us_core_condition_problems_health_concerns: [],
+    us_core_coverage: [],
+    us_core_diagnosticreport_lab: [],
+    us_core_diagnosticreport_note: [],
+    us_core_documentreference: [],
+    us_core_encounter: [],
+    us_core_goal: [],
+    us_core_head_circumference: [],
+    us_core_heart_rate: [],
+    us_core_immunization: [],
+    us_core_implantable_device: [],
+    us_core_location: [],
+    us_core_medication: [],
+    us_core_medicationdispense: [],
+    us_core_medicationrequest: [],
+    us_core_observation_clinical_result: [],
+    us_core_observation_lab: [],
+    us_core_observation_occupation: [],
+    us_core_observation_pregnancyintent: [],
+    us_core_observation_pregnancystatus: [],
+    us_core_observation_screening_assessment: [],
+    us_core_observation_sexual_orientation: [],
+    us_core_organization: [],
+    us_core_patient: [],
+    us_core_practitioner: [],
+    us_core_practitionerrole: [],
+    us_core_procedure: [],
+    us_core_provenance: [],
+    us_core_pulse_oximetry: [],
+    us_core_questionnaireresponse: [],
+    us_core_relatedperson: [],
+    us_core_respiratory_rate: [],
+    us_core_servicerequest: [],
+    us_core_simple_observation: [],
+    us_core_smokingstatus: [],
+    us_core_specimen: [],
+    us_core_treatment_intervention_preference: [],
+    us_core_vital_signs: [],
+  )
 }
 
 pub fn bundle_to_groupedresources(
@@ -527,6 +655,269 @@ pub fn bundle_to_groupedresources(
               GroupedResources(..acc, operationoutcome: [
                 r,
                 ..acc.operationoutcome
+              ])
+            resources.ResourceHeadOccipitalFrontalCircumferencePercentile(r) ->
+              GroupedResources(
+                ..acc,
+                head_occipital_frontal_circumference_percentile: [
+                  r,
+                  ..acc.head_occipital_frontal_circumference_percentile
+                ],
+              )
+            resources.ResourcePediatricBmiForAge(r) ->
+              GroupedResources(..acc, pediatric_bmi_for_age: [
+                r,
+                ..acc.pediatric_bmi_for_age
+              ])
+            resources.ResourcePediatricWeightForHeight(r) ->
+              GroupedResources(..acc, pediatric_weight_for_height: [
+                r,
+                ..acc.pediatric_weight_for_height
+              ])
+            resources.ResourceUsCoreAllergyintolerance(r) ->
+              GroupedResources(..acc, us_core_allergyintolerance: [
+                r,
+                ..acc.us_core_allergyintolerance
+              ])
+            resources.ResourceUsCoreAverageBloodPressure(r) ->
+              GroupedResources(..acc, us_core_average_blood_pressure: [
+                r,
+                ..acc.us_core_average_blood_pressure
+              ])
+            resources.ResourceUsCoreBloodPressure(r) ->
+              GroupedResources(..acc, us_core_blood_pressure: [
+                r,
+                ..acc.us_core_blood_pressure
+              ])
+            resources.ResourceUsCoreBmi(r) ->
+              GroupedResources(..acc, us_core_bmi: [r, ..acc.us_core_bmi])
+            resources.ResourceUsCoreBodyHeight(r) ->
+              GroupedResources(..acc, us_core_body_height: [
+                r,
+                ..acc.us_core_body_height
+              ])
+            resources.ResourceUsCoreBodyTemperature(r) ->
+              GroupedResources(..acc, us_core_body_temperature: [
+                r,
+                ..acc.us_core_body_temperature
+              ])
+            resources.ResourceUsCoreBodyWeight(r) ->
+              GroupedResources(..acc, us_core_body_weight: [
+                r,
+                ..acc.us_core_body_weight
+              ])
+            resources.ResourceUsCoreCareExperiencePreference(r) ->
+              GroupedResources(..acc, us_core_care_experience_preference: [
+                r,
+                ..acc.us_core_care_experience_preference
+              ])
+            resources.ResourceUsCoreCareplan(r) ->
+              GroupedResources(..acc, us_core_careplan: [
+                r,
+                ..acc.us_core_careplan
+              ])
+            resources.ResourceUsCoreCareteam(r) ->
+              GroupedResources(..acc, us_core_careteam: [
+                r,
+                ..acc.us_core_careteam
+              ])
+            resources.ResourceUsCoreConditionEncounterDiagnosis(r) ->
+              GroupedResources(..acc, us_core_condition_encounter_diagnosis: [
+                r,
+                ..acc.us_core_condition_encounter_diagnosis
+              ])
+            resources.ResourceUsCoreConditionProblemsHealthConcerns(r) ->
+              GroupedResources(
+                ..acc,
+                us_core_condition_problems_health_concerns: [
+                  r,
+                  ..acc.us_core_condition_problems_health_concerns
+                ],
+              )
+            resources.ResourceUsCoreCoverage(r) ->
+              GroupedResources(..acc, us_core_coverage: [
+                r,
+                ..acc.us_core_coverage
+              ])
+            resources.ResourceUsCoreDiagnosticreportLab(r) ->
+              GroupedResources(..acc, us_core_diagnosticreport_lab: [
+                r,
+                ..acc.us_core_diagnosticreport_lab
+              ])
+            resources.ResourceUsCoreDiagnosticreportNote(r) ->
+              GroupedResources(..acc, us_core_diagnosticreport_note: [
+                r,
+                ..acc.us_core_diagnosticreport_note
+              ])
+            resources.ResourceUsCoreDocumentreference(r) ->
+              GroupedResources(..acc, us_core_documentreference: [
+                r,
+                ..acc.us_core_documentreference
+              ])
+            resources.ResourceUsCoreEncounter(r) ->
+              GroupedResources(..acc, us_core_encounter: [
+                r,
+                ..acc.us_core_encounter
+              ])
+            resources.ResourceUsCoreGoal(r) ->
+              GroupedResources(..acc, us_core_goal: [r, ..acc.us_core_goal])
+            resources.ResourceUsCoreHeadCircumference(r) ->
+              GroupedResources(..acc, us_core_head_circumference: [
+                r,
+                ..acc.us_core_head_circumference
+              ])
+            resources.ResourceUsCoreHeartRate(r) ->
+              GroupedResources(..acc, us_core_heart_rate: [
+                r,
+                ..acc.us_core_heart_rate
+              ])
+            resources.ResourceUsCoreImmunization(r) ->
+              GroupedResources(..acc, us_core_immunization: [
+                r,
+                ..acc.us_core_immunization
+              ])
+            resources.ResourceUsCoreImplantableDevice(r) ->
+              GroupedResources(..acc, us_core_implantable_device: [
+                r,
+                ..acc.us_core_implantable_device
+              ])
+            resources.ResourceUsCoreLocation(r) ->
+              GroupedResources(..acc, us_core_location: [
+                r,
+                ..acc.us_core_location
+              ])
+            resources.ResourceUsCoreMedication(r) ->
+              GroupedResources(..acc, us_core_medication: [
+                r,
+                ..acc.us_core_medication
+              ])
+            resources.ResourceUsCoreMedicationdispense(r) ->
+              GroupedResources(..acc, us_core_medicationdispense: [
+                r,
+                ..acc.us_core_medicationdispense
+              ])
+            resources.ResourceUsCoreMedicationrequest(r) ->
+              GroupedResources(..acc, us_core_medicationrequest: [
+                r,
+                ..acc.us_core_medicationrequest
+              ])
+            resources.ResourceUsCoreObservationClinicalResult(r) ->
+              GroupedResources(..acc, us_core_observation_clinical_result: [
+                r,
+                ..acc.us_core_observation_clinical_result
+              ])
+            resources.ResourceUsCoreObservationLab(r) ->
+              GroupedResources(..acc, us_core_observation_lab: [
+                r,
+                ..acc.us_core_observation_lab
+              ])
+            resources.ResourceUsCoreObservationOccupation(r) ->
+              GroupedResources(..acc, us_core_observation_occupation: [
+                r,
+                ..acc.us_core_observation_occupation
+              ])
+            resources.ResourceUsCoreObservationPregnancyintent(r) ->
+              GroupedResources(..acc, us_core_observation_pregnancyintent: [
+                r,
+                ..acc.us_core_observation_pregnancyintent
+              ])
+            resources.ResourceUsCoreObservationPregnancystatus(r) ->
+              GroupedResources(..acc, us_core_observation_pregnancystatus: [
+                r,
+                ..acc.us_core_observation_pregnancystatus
+              ])
+            resources.ResourceUsCoreObservationScreeningAssessment(r) ->
+              GroupedResources(..acc, us_core_observation_screening_assessment: [
+                r,
+                ..acc.us_core_observation_screening_assessment
+              ])
+            resources.ResourceUsCoreObservationSexualOrientation(r) ->
+              GroupedResources(..acc, us_core_observation_sexual_orientation: [
+                r,
+                ..acc.us_core_observation_sexual_orientation
+              ])
+            resources.ResourceUsCoreOrganization(r) ->
+              GroupedResources(..acc, us_core_organization: [
+                r,
+                ..acc.us_core_organization
+              ])
+            resources.ResourceUsCorePatient(r) ->
+              GroupedResources(..acc, us_core_patient: [
+                r,
+                ..acc.us_core_patient
+              ])
+            resources.ResourceUsCorePractitioner(r) ->
+              GroupedResources(..acc, us_core_practitioner: [
+                r,
+                ..acc.us_core_practitioner
+              ])
+            resources.ResourceUsCorePractitionerrole(r) ->
+              GroupedResources(..acc, us_core_practitionerrole: [
+                r,
+                ..acc.us_core_practitionerrole
+              ])
+            resources.ResourceUsCoreProcedure(r) ->
+              GroupedResources(..acc, us_core_procedure: [
+                r,
+                ..acc.us_core_procedure
+              ])
+            resources.ResourceUsCoreProvenance(r) ->
+              GroupedResources(..acc, us_core_provenance: [
+                r,
+                ..acc.us_core_provenance
+              ])
+            resources.ResourceUsCorePulseOximetry(r) ->
+              GroupedResources(..acc, us_core_pulse_oximetry: [
+                r,
+                ..acc.us_core_pulse_oximetry
+              ])
+            resources.ResourceUsCoreQuestionnaireresponse(r) ->
+              GroupedResources(..acc, us_core_questionnaireresponse: [
+                r,
+                ..acc.us_core_questionnaireresponse
+              ])
+            resources.ResourceUsCoreRelatedperson(r) ->
+              GroupedResources(..acc, us_core_relatedperson: [
+                r,
+                ..acc.us_core_relatedperson
+              ])
+            resources.ResourceUsCoreRespiratoryRate(r) ->
+              GroupedResources(..acc, us_core_respiratory_rate: [
+                r,
+                ..acc.us_core_respiratory_rate
+              ])
+            resources.ResourceUsCoreServicerequest(r) ->
+              GroupedResources(..acc, us_core_servicerequest: [
+                r,
+                ..acc.us_core_servicerequest
+              ])
+            resources.ResourceUsCoreSimpleObservation(r) ->
+              GroupedResources(..acc, us_core_simple_observation: [
+                r,
+                ..acc.us_core_simple_observation
+              ])
+            resources.ResourceUsCoreSmokingstatus(r) ->
+              GroupedResources(..acc, us_core_smokingstatus: [
+                r,
+                ..acc.us_core_smokingstatus
+              ])
+            resources.ResourceUsCoreSpecimen(r) ->
+              GroupedResources(..acc, us_core_specimen: [
+                r,
+                ..acc.us_core_specimen
+              ])
+            resources.ResourceUsCoreTreatmentInterventionPreference(r) ->
+              GroupedResources(
+                ..acc,
+                us_core_treatment_intervention_preference: [
+                  r,
+                  ..acc.us_core_treatment_intervention_preference
+                ],
+              )
+            resources.ResourceUsCoreVitalSigns(r) ->
+              GroupedResources(..acc, us_core_vital_signs: [
+                r,
+                ..acc.us_core_vital_signs
               ])
             _ -> acc
           }

@@ -2914,3 +2914,1364 @@ pub fn operationoutcome_search(
     Error(error) -> Error(error)
   }
 }
+
+pub fn head_occipital_frontal_circumference_percentile_search_bundled(
+  sp: search_params.HeadOccipitalFrontalCircumferencePercentile,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn head_occipital_frontal_circumference_percentile_search(
+  sp: search_params.HeadOccipitalFrontalCircumferencePercentile,
+  client: FhirClient,
+) -> Result(List(resources.HeadOccipitalFrontalCircumferencePercentile), Err) {
+  case
+    head_occipital_frontal_circumference_percentile_search_bundled(sp, client)
+  {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.head_occipital_frontal_circumference_percentile,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn pediatric_bmi_for_age_search_bundled(
+  sp: search_params.PediatricBmiForAge,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn pediatric_bmi_for_age_search(
+  sp: search_params.PediatricBmiForAge,
+  client: FhirClient,
+) -> Result(List(resources.PediatricBmiForAge), Err) {
+  case pediatric_bmi_for_age_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.pediatric_bmi_for_age)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn pediatric_weight_for_height_search_bundled(
+  sp: search_params.PediatricWeightForHeight,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn pediatric_weight_for_height_search(
+  sp: search_params.PediatricWeightForHeight,
+  client: FhirClient,
+) -> Result(List(resources.PediatricWeightForHeight), Err) {
+  case pediatric_weight_for_height_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.pediatric_weight_for_height,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_allergyintolerance_search_bundled(
+  sp: search_params.UsCoreAllergyintolerance,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("clinical-status", sp.clinical_status),
+    #("patient", sp.patient),
+  ])
+  |> search_any(resources.RtAllergyintolerance, client)
+}
+
+pub fn us_core_allergyintolerance_search(
+  sp: search_params.UsCoreAllergyintolerance,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreAllergyintolerance), Err) {
+  case us_core_allergyintolerance_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_allergyintolerance,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_average_blood_pressure_search_bundled(
+  sp: search_params.UsCoreAverageBloodPressure,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_average_blood_pressure_search(
+  sp: search_params.UsCoreAverageBloodPressure,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreAverageBloodPressure), Err) {
+  case us_core_average_blood_pressure_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_average_blood_pressure,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_blood_pressure_search_bundled(
+  sp: search_params.UsCoreBloodPressure,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_blood_pressure_search(
+  sp: search_params.UsCoreBloodPressure,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreBloodPressure), Err) {
+  case us_core_blood_pressure_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_blood_pressure)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_bmi_search_bundled(
+  sp: search_params.UsCoreBmi,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_bmi_search(
+  sp: search_params.UsCoreBmi,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreBmi), Err) {
+  case us_core_bmi_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_bmi)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_body_height_search_bundled(
+  sp: search_params.UsCoreBodyHeight,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_body_height_search(
+  sp: search_params.UsCoreBodyHeight,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreBodyHeight), Err) {
+  case us_core_body_height_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_body_height)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_body_temperature_search_bundled(
+  sp: search_params.UsCoreBodyTemperature,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_body_temperature_search(
+  sp: search_params.UsCoreBodyTemperature,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreBodyTemperature), Err) {
+  case us_core_body_temperature_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_body_temperature,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_body_weight_search_bundled(
+  sp: search_params.UsCoreBodyWeight,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_body_weight_search(
+  sp: search_params.UsCoreBodyWeight,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreBodyWeight), Err) {
+  case us_core_body_weight_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_body_weight)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_care_experience_preference_search_bundled(
+  sp: search_params.UsCoreCareExperiencePreference,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_care_experience_preference_search(
+  sp: search_params.UsCoreCareExperiencePreference,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreCareExperiencePreference), Err) {
+  case us_core_care_experience_preference_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_care_experience_preference,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_careplan_search_bundled(
+  sp: search_params.UsCoreCareplan,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("date", sp.date),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtCareplan, client)
+}
+
+pub fn us_core_careplan_search(
+  sp: search_params.UsCoreCareplan,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreCareplan), Err) {
+  case us_core_careplan_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_careplan)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_careteam_search_bundled(
+  sp: search_params.UsCoreCareteam,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("patient", sp.patient),
+    #("role", sp.role),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtCareteam, client)
+}
+
+pub fn us_core_careteam_search(
+  sp: search_params.UsCoreCareteam,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreCareteam), Err) {
+  case us_core_careteam_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_careteam)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_condition_encounter_diagnosis_search_bundled(
+  sp: search_params.UsCoreConditionEncounterDiagnosis,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("abatement-date", sp.abatement_date),
+    #("asserted-date", sp.asserted_date),
+    #("category", sp.category),
+    #("clinical-status", sp.clinical_status),
+    #("code", sp.code),
+    #("encounter", sp.encounter),
+    #("onset-date", sp.onset_date),
+    #("patient", sp.patient),
+    #("recorded-date", sp.recorded_date),
+    #("_lastUpdated", sp.lastupdated),
+  ])
+  |> search_any(resources.RtCondition, client)
+}
+
+pub fn us_core_condition_encounter_diagnosis_search(
+  sp: search_params.UsCoreConditionEncounterDiagnosis,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreConditionEncounterDiagnosis), Err) {
+  case us_core_condition_encounter_diagnosis_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_condition_encounter_diagnosis,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_condition_problems_health_concerns_search_bundled(
+  sp: search_params.UsCoreConditionProblemsHealthConcerns,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("abatement-date", sp.abatement_date),
+    #("asserted-date", sp.asserted_date),
+    #("category", sp.category),
+    #("clinical-status", sp.clinical_status),
+    #("code", sp.code),
+    #("encounter", sp.encounter),
+    #("onset-date", sp.onset_date),
+    #("patient", sp.patient),
+    #("recorded-date", sp.recorded_date),
+    #("_lastUpdated", sp.lastupdated),
+  ])
+  |> search_any(resources.RtCondition, client)
+}
+
+pub fn us_core_condition_problems_health_concerns_search(
+  sp: search_params.UsCoreConditionProblemsHealthConcerns,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreConditionProblemsHealthConcerns), Err) {
+  case us_core_condition_problems_health_concerns_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_condition_problems_health_concerns,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_coverage_search_bundled(
+  sp: search_params.UsCoreCoverage,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("patient", sp.patient),
+  ])
+  |> search_any(resources.RtCoverage, client)
+}
+
+pub fn us_core_coverage_search(
+  sp: search_params.UsCoreCoverage,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreCoverage), Err) {
+  case us_core_coverage_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_coverage)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_diagnosticreport_lab_search_bundled(
+  sp: search_params.UsCoreDiagnosticreportLab,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtDiagnosticreport, client)
+}
+
+pub fn us_core_diagnosticreport_lab_search(
+  sp: search_params.UsCoreDiagnosticreportLab,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreDiagnosticreportLab), Err) {
+  case us_core_diagnosticreport_lab_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_diagnosticreport_lab,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_diagnosticreport_note_search_bundled(
+  sp: search_params.UsCoreDiagnosticreportNote,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtDiagnosticreport, client)
+}
+
+pub fn us_core_diagnosticreport_note_search(
+  sp: search_params.UsCoreDiagnosticreportNote,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreDiagnosticreportNote), Err) {
+  case us_core_diagnosticreport_note_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_diagnosticreport_note,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_documentreference_search_bundled(
+  sp: search_params.UsCoreDocumentreference,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("category", sp.category),
+    #("date", sp.date),
+    #("patient", sp.patient),
+    #("period", sp.period),
+    #("status", sp.status),
+    #("type", sp.type_),
+  ])
+  |> search_any(resources.RtDocumentreference, client)
+}
+
+pub fn us_core_documentreference_search(
+  sp: search_params.UsCoreDocumentreference,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreDocumentreference), Err) {
+  case us_core_documentreference_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_documentreference,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_encounter_search_bundled(
+  sp: search_params.UsCoreEncounter,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("class", sp.class),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("discharge-disposition", sp.discharge_disposition),
+    #("identifier", sp.identifier),
+    #("location", sp.location),
+    #("patient", sp.patient),
+    #("status", sp.status),
+    #("type", sp.type_),
+  ])
+  |> search_any(resources.RtEncounter, client)
+}
+
+pub fn us_core_encounter_search(
+  sp: search_params.UsCoreEncounter,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreEncounter), Err) {
+  case us_core_encounter_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_encounter)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_goal_search_bundled(
+  sp: search_params.UsCoreGoal,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("description", sp.description),
+    #("lifecycle-status", sp.lifecycle_status),
+    #("patient", sp.patient),
+    #("target-date", sp.target_date),
+  ])
+  |> search_any(resources.RtGoal, client)
+}
+
+pub fn us_core_goal_search(
+  sp: search_params.UsCoreGoal,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreGoal), Err) {
+  case us_core_goal_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_goal)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_head_circumference_search_bundled(
+  sp: search_params.UsCoreHeadCircumference,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_head_circumference_search(
+  sp: search_params.UsCoreHeadCircumference,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreHeadCircumference), Err) {
+  case us_core_head_circumference_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_head_circumference,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_heart_rate_search_bundled(
+  sp: search_params.UsCoreHeartRate,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_heart_rate_search(
+  sp: search_params.UsCoreHeartRate,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreHeartRate), Err) {
+  case us_core_heart_rate_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_heart_rate)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_immunization_search_bundled(
+  sp: search_params.UsCoreImmunization,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("date", sp.date),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtImmunization, client)
+}
+
+pub fn us_core_immunization_search(
+  sp: search_params.UsCoreImmunization,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreImmunization), Err) {
+  case us_core_immunization_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_immunization)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_implantable_device_search_bundled(
+  sp: search_params.UsCoreImplantableDevice,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("patient", sp.patient),
+    #("status", sp.status),
+    #("type", sp.type_),
+  ])
+  |> search_any(resources.RtDevice, client)
+}
+
+pub fn us_core_implantable_device_search(
+  sp: search_params.UsCoreImplantableDevice,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreImplantableDevice), Err) {
+  case us_core_implantable_device_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_implantable_device,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_location_search_bundled(
+  sp: search_params.UsCoreLocation,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("address", sp.address),
+    #("address-city", sp.address_city),
+    #("address-postalcode", sp.address_postalcode),
+    #("address-state", sp.address_state),
+    #("name", sp.name),
+  ])
+  |> search_any(resources.RtLocation, client)
+}
+
+pub fn us_core_location_search(
+  sp: search_params.UsCoreLocation,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreLocation), Err) {
+  case us_core_location_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_location)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_medication_search_bundled(
+  _sp: search_params.UsCoreMedication,
+  client: FhirClient,
+) {
+  search_params.to_string([])
+  |> search_any(resources.RtMedication, client)
+}
+
+pub fn us_core_medication_search(
+  sp: search_params.UsCoreMedication,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreMedication), Err) {
+  case us_core_medication_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_medication)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_medicationdispense_search_bundled(
+  sp: search_params.UsCoreMedicationdispense,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("patient", sp.patient),
+    #("status", sp.status),
+    #("type", sp.type_),
+  ])
+  |> search_any(resources.RtMedicationdispense, client)
+}
+
+pub fn us_core_medicationdispense_search(
+  sp: search_params.UsCoreMedicationdispense,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreMedicationdispense), Err) {
+  case us_core_medicationdispense_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_medicationdispense,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_medicationrequest_search_bundled(
+  sp: search_params.UsCoreMedicationrequest,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("authoredon", sp.authoredon),
+    #("encounter", sp.encounter),
+    #("intent", sp.intent),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtMedicationrequest, client)
+}
+
+pub fn us_core_medicationrequest_search(
+  sp: search_params.UsCoreMedicationrequest,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreMedicationrequest), Err) {
+  case us_core_medicationrequest_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_medicationrequest,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_observation_clinical_result_search_bundled(
+  sp: search_params.UsCoreObservationClinicalResult,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_observation_clinical_result_search(
+  sp: search_params.UsCoreObservationClinicalResult,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreObservationClinicalResult), Err) {
+  case us_core_observation_clinical_result_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_observation_clinical_result,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_observation_lab_search_bundled(
+  sp: search_params.UsCoreObservationLab,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_observation_lab_search(
+  sp: search_params.UsCoreObservationLab,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreObservationLab), Err) {
+  case us_core_observation_lab_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_observation_lab,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_observation_occupation_search_bundled(
+  sp: search_params.UsCoreObservationOccupation,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_observation_occupation_search(
+  sp: search_params.UsCoreObservationOccupation,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreObservationOccupation), Err) {
+  case us_core_observation_occupation_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_observation_occupation,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_observation_pregnancyintent_search_bundled(
+  sp: search_params.UsCoreObservationPregnancyintent,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_observation_pregnancyintent_search(
+  sp: search_params.UsCoreObservationPregnancyintent,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreObservationPregnancyintent), Err) {
+  case us_core_observation_pregnancyintent_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_observation_pregnancyintent,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_observation_pregnancystatus_search_bundled(
+  sp: search_params.UsCoreObservationPregnancystatus,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_observation_pregnancystatus_search(
+  sp: search_params.UsCoreObservationPregnancystatus,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreObservationPregnancystatus), Err) {
+  case us_core_observation_pregnancystatus_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_observation_pregnancystatus,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_observation_screening_assessment_search_bundled(
+  sp: search_params.UsCoreObservationScreeningAssessment,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_observation_screening_assessment_search(
+  sp: search_params.UsCoreObservationScreeningAssessment,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreObservationScreeningAssessment), Err) {
+  case us_core_observation_screening_assessment_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_observation_screening_assessment,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_observation_sexual_orientation_search_bundled(
+  sp: search_params.UsCoreObservationSexualOrientation,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_observation_sexual_orientation_search(
+  sp: search_params.UsCoreObservationSexualOrientation,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreObservationSexualOrientation), Err) {
+  case us_core_observation_sexual_orientation_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_observation_sexual_orientation,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_organization_search_bundled(
+  sp: search_params.UsCoreOrganization,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("address", sp.address),
+    #("name", sp.name),
+  ])
+  |> search_any(resources.RtOrganization, client)
+}
+
+pub fn us_core_organization_search(
+  sp: search_params.UsCoreOrganization,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreOrganization), Err) {
+  case us_core_organization_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_organization)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_patient_search_bundled(
+  sp: search_params.UsCorePatient,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("birthdate", sp.birthdate),
+    #("death-date", sp.death_date),
+    #("family", sp.family),
+    #("gender", sp.gender),
+    #("given", sp.given),
+    #("identifier", sp.identifier),
+    #("name", sp.name),
+  ])
+  |> search_any(resources.RtPatient, client)
+}
+
+pub fn us_core_patient_search(
+  sp: search_params.UsCorePatient,
+  client: FhirClient,
+) -> Result(List(resources.UsCorePatient), Err) {
+  case us_core_patient_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_patient)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_practitioner_search_bundled(
+  sp: search_params.UsCorePractitioner,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("identifier", sp.identifier),
+    #("name", sp.name),
+  ])
+  |> search_any(resources.RtPractitioner, client)
+}
+
+pub fn us_core_practitioner_search(
+  sp: search_params.UsCorePractitioner,
+  client: FhirClient,
+) -> Result(List(resources.UsCorePractitioner), Err) {
+  case us_core_practitioner_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_practitioner)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_practitionerrole_search_bundled(
+  sp: search_params.UsCorePractitionerrole,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("practitioner", sp.practitioner),
+    #("specialty", sp.specialty),
+  ])
+  |> search_any(resources.RtPractitionerrole, client)
+}
+
+pub fn us_core_practitionerrole_search(
+  sp: search_params.UsCorePractitionerrole,
+  client: FhirClient,
+) -> Result(List(resources.UsCorePractitionerrole), Err) {
+  case us_core_practitionerrole_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_practitionerrole,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_procedure_search_bundled(
+  sp: search_params.UsCoreProcedure,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("code", sp.code),
+    #("date", sp.date),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtProcedure, client)
+}
+
+pub fn us_core_procedure_search(
+  sp: search_params.UsCoreProcedure,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreProcedure), Err) {
+  case us_core_procedure_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_procedure)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_provenance_search_bundled(
+  _sp: search_params.UsCoreProvenance,
+  client: FhirClient,
+) {
+  search_params.to_string([])
+  |> search_any(resources.RtProvenance, client)
+}
+
+pub fn us_core_provenance_search(
+  sp: search_params.UsCoreProvenance,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreProvenance), Err) {
+  case us_core_provenance_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_provenance)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_pulse_oximetry_search_bundled(
+  sp: search_params.UsCorePulseOximetry,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_pulse_oximetry_search(
+  sp: search_params.UsCorePulseOximetry,
+  client: FhirClient,
+) -> Result(List(resources.UsCorePulseOximetry), Err) {
+  case us_core_pulse_oximetry_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_pulse_oximetry)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_questionnaireresponse_search_bundled(
+  sp: search_params.UsCoreQuestionnaireresponse,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("authored", sp.authored),
+    #("patient", sp.patient),
+    #("questionnaire", sp.questionnaire),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtQuestionnaireresponse, client)
+}
+
+pub fn us_core_questionnaireresponse_search(
+  sp: search_params.UsCoreQuestionnaireresponse,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreQuestionnaireresponse), Err) {
+  case us_core_questionnaireresponse_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_questionnaireresponse,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_relatedperson_search_bundled(
+  sp: search_params.UsCoreRelatedperson,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("name", sp.name),
+    #("patient", sp.patient),
+  ])
+  |> search_any(resources.RtRelatedperson, client)
+}
+
+pub fn us_core_relatedperson_search(
+  sp: search_params.UsCoreRelatedperson,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreRelatedperson), Err) {
+  case us_core_relatedperson_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_relatedperson)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_respiratory_rate_search_bundled(
+  sp: search_params.UsCoreRespiratoryRate,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_respiratory_rate_search(
+  sp: search_params.UsCoreRespiratoryRate,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreRespiratoryRate), Err) {
+  case us_core_respiratory_rate_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_respiratory_rate,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_servicerequest_search_bundled(
+  sp: search_params.UsCoreServicerequest,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("authored", sp.authored),
+    #("category", sp.category),
+    #("code", sp.code),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtServicerequest, client)
+}
+
+pub fn us_core_servicerequest_search(
+  sp: search_params.UsCoreServicerequest,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreServicerequest), Err) {
+  case us_core_servicerequest_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_servicerequest)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_simple_observation_search_bundled(
+  sp: search_params.UsCoreSimpleObservation,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_simple_observation_search(
+  sp: search_params.UsCoreSimpleObservation,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreSimpleObservation), Err) {
+  case us_core_simple_observation_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_simple_observation,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_smokingstatus_search_bundled(
+  sp: search_params.UsCoreSmokingstatus,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_smokingstatus_search(
+  sp: search_params.UsCoreSmokingstatus,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreSmokingstatus), Err) {
+  case us_core_smokingstatus_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_smokingstatus)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_specimen_search_bundled(
+  sp: search_params.UsCoreSpecimen,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("_id", sp.id),
+    #("patient", sp.patient),
+  ])
+  |> search_any(resources.RtSpecimen, client)
+}
+
+pub fn us_core_specimen_search(
+  sp: search_params.UsCoreSpecimen,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreSpecimen), Err) {
+  case us_core_specimen_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_specimen)
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_treatment_intervention_preference_search_bundled(
+  sp: search_params.UsCoreTreatmentInterventionPreference,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_treatment_intervention_preference_search(
+  sp: search_params.UsCoreTreatmentInterventionPreference,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreTreatmentInterventionPreference), Err) {
+  case us_core_treatment_intervention_preference_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok(
+        { bundle |> sansio.bundle_to_groupedresources }.us_core_treatment_intervention_preference,
+      )
+    Error(error) -> Error(error)
+  }
+}
+
+pub fn us_core_vital_signs_search_bundled(
+  sp: search_params.UsCoreVitalSigns,
+  client: FhirClient,
+) {
+  search_params.to_string([
+    #("category", sp.category),
+    #("code", sp.code),
+    #("date", sp.date),
+    #("_lastUpdated", sp.lastupdated),
+    #("patient", sp.patient),
+    #("status", sp.status),
+  ])
+  |> search_any(resources.RtObservation, client)
+}
+
+pub fn us_core_vital_signs_search(
+  sp: search_params.UsCoreVitalSigns,
+  client: FhirClient,
+) -> Result(List(resources.UsCoreVitalSigns), Err) {
+  case us_core_vital_signs_search_bundled(sp, client) {
+    Ok(bundle) ->
+      Ok({ bundle |> sansio.bundle_to_groupedresources }.us_core_vital_signs)
+    Error(error) -> Error(error)
+  }
+}
